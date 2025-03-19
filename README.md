@@ -15,13 +15,15 @@ Verify your prerequisite by running:
   npm -v
 ```
 
+They should return the current version
+
 ## Installation
 
 1. Clone the project repository
 
    ```bash
-     git clone https://github.com/lg-caceres/playwrightExercises.git
-     cd playwrightExercises
+     git clone https://github.com/lg-caceres/playwright-pom.git
+     cd playwrigh-pom
    ```
 
 2. Install the project dependencies:
@@ -42,25 +44,31 @@ Verify your prerequisite by running:
 
 To execute them, you can use any of these scripts:
 
-1. Run all test in UI mode
+1. Run all tests in terminal
+
+   ```bash
+     npm run all-tests-terminal
+   ```
+
+2. Run all tests in UI mode
 
    ```bash
      npm run all-tests-ui-mode
    ```
 
-2. Run all test in headless mode
+3. Run all tests in headed browsers
 
    ```bash
-     npm run all-tests-ui-mode
+     npm run all-tests
    ```
 
-3. Run Login Page tests in Headless Mode
+4. Run Login Page tests in headed browsers
 
    ```bash
      npm run login-page-test
    ```
 
-4. Run Inventory Page tests in Headless Mode
+5. Run Inventory Page tests in headed browsers
 
    ```bash
      npm run inventory-page-test
@@ -93,10 +101,10 @@ playrightExercises/
 ├── README.md
 ```
 
-Folder and File Descriptions:
+Folder and File Description:
 
 - **data:** Test data used in tests.
-- **e2e/fixtures:** File to extends playwright's fixtures and make page objects accessible on any test suite.
+- **e2e/fixtures:** File to extends playwright's fixtures and make page objects accessible on any test suite. Also the expect methos was extended
 - **e2e/pages:** Page object files to organize reusable elements(Login and Inventory).
 - **e2e/tests:** Contains test files for Login and Inventory pages
 - **.gitignore:** Files to be ignore by github.

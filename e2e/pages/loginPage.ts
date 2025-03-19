@@ -1,4 +1,4 @@
-import {Page, Locator, expect} from '@playwright/test'
+import {Page, Locator, expect} from '../fixtures/resources.fixture'
 import { loginPageData } from '../../data/testData'
 import { BasePage } from './basePage'
 
@@ -31,7 +31,7 @@ export class LoginPage extends BasePage {
     }
 
     public async loginFormDisplayed() {
-        await this.isElementDisplayed(this.locators.loginContainer)
+        await expect(this.locators.loginContainer).toBeDisplayed()
     }
 
     public async fillFormAndSubmit(username: string, password: string){
@@ -45,7 +45,7 @@ export class LoginPage extends BasePage {
     }
 
     public async loginFails(loginErrorMessage:string) {
-        await this.isElementDisplayed(this.page.getByText(loginErrorMessage))
+        await expect(this.page.getByText(loginErrorMessage)).toBeDisplayed()
     }
 
 }

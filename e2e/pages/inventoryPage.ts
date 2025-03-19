@@ -1,4 +1,4 @@
-import {Page, Locator, expect} from '@playwright/test'
+import {Page, Locator, expect} from '../fixtures/resources.fixture'
 import { inventoryPageData } from '../../data/testData'
 import { BasePage } from './basePage'
 
@@ -9,7 +9,6 @@ interface InventoryPageLocators {
     openMenuButton: Locator
     logoutSidebarOption: Locator
 }
-
 
 export class InventoryPage extends BasePage {
     public url = inventoryPageData.url
@@ -29,29 +28,33 @@ export class InventoryPage extends BasePage {
     }
 
     public async containerItemDisplayed() {
-        this.isElementDisplayed(this.locators.inventoryList)
+        await expect(this.locators.inventoryList).toBeDisplayed
     }
 
     public async areAllItemsDisplayed(numberOfItems: number) {
         await expect(this.locators.inventoryItem).toHaveCount(numberOfItems)
     } 
 
+    private getItemSelector(itemName: string, action: 'add-to-cart' | 'remove'): Locator {
+        // Converts item names to a format suitable for selectors (e.g., "Item Name" -> "item-name")
+        const selectorId = itemName.toLowerCase().replace(/ /g, '-')
+        return this.page.getByTestId(`${action}-${selectorId}`)
+    }
+
     public async addItemsToCart(itemsName: string[]) {
         for(const itemName of itemsName){ 
-            const selectorId = this.convertNameOnSelector(itemName)
-            await this.clickOnElement (this.page.getByTestId(`add-to-cart-${selectorId}`))
+            await this.clickOnElement (this.getItemSelector(itemName, 'add-to-cart'))
         }
     }
 
     public async removeItemsFromCart(itemsName: string[]) {
         for(const itemName of itemsName){ 
-            const selectorId = this.convertNameOnSelector(itemName)
-            await this.clickOnElement(this.page.getByTestId(`remove-${selectorId}`))
+            await this.clickOnElement(this.getItemSelector(itemName, 'remove'))
         }
     }
 
     public async verifyCartBadgeCount(totalItemsAdded: number) {
-        this.isElementDisplayed(this.locators.shoppingCartBadge)
+        await expect(this.locators.shoppingCartBadge).toBeDisplayed()
         await expect(this.locators.shoppingCartBadge).toHaveText(totalItemsAdded.toString())
     }
 

@@ -7,7 +7,8 @@
     "login-page-test": "npx playwright test loginPage.spec.ts --headed",
     "inventory-page-test": "npx playwright test inventoryPage.spec.ts --headed",
     "all-tests": "npx playwright test --headed",
-    "all-tests-ui-mode": "npx playwright test --ui"
+    "all-tests-ui-mode": "npx playwright test --ui",
+    "all-tests-terminal": "npx playwright test"
   },
   "keywords": ["playwright", "typescript", "Swag Labs"],
   "author": "Luis Caceres",

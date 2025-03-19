@@ -1,13 +1,15 @@
 import { test } from "../fixtures/resources.fixture"
 import { loginPageData, inventoryPageData } from "../../data/testData";
 
-
 test.describe('Login page test suite', () => {
 
   const {pageTitle, validUserName, validPassword, invalidPassword, loginErrorMessage} = loginPageData
   const inventoryUrl = inventoryPageData.url
 
   test.beforeEach(async ({ loginPage }) => {
+    //capture suite start time
+    console.log(`[${new Date().toISOString()}] Starting test: ${test.info().title}`)
+    //visit login page
     await loginPage.goto(pageTitle)
     await loginPage.loginFormDisplayed()
   });

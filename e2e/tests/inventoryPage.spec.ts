@@ -1,13 +1,15 @@
 import { test } from "../fixtures/resources.fixture"
 import { loginPageData, inventoryPageData } from "../../data/testData"
 
-
 test.describe('Inventory page test suite', () => {
 
   const {pageTitle, validUserName, validPassword} = loginPageData
   const {numberOfItems, itemsToBeAdded, itemsToBeRemoved} = inventoryPageData
 
   test.beforeEach(async ({ loginPage, inventoryPage }) => {
+    //capture suite start time
+    console.log(`[${new Date().toISOString()}] Starting test: ${test.info().title}`)
+    //login in 
     await loginPage.goto(pageTitle)
     await loginPage.loginFormDisplayed()
     await loginPage.fillFormAndSubmit(validUserName, validPassword)
@@ -34,7 +36,7 @@ test.describe('Inventory page test suite', () => {
     await inventoryPage.verifyCartBadgeCount(numberOfFinalItemsSelected)
   })
 
-  test('Users shoudl be able to logout from application', async ({inventoryPage, loginPage}) => {
+  test('Users shoudl be able to logout from the application using the context menu', async ({inventoryPage, loginPage}) => {
     //logout and verify login page is displayed
     await inventoryPage.logoutUsingContextMenu()
     await loginPage.loginFormDisplayed()
