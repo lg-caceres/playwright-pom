@@ -1,4 +1,4 @@
-# playwrightExercises
+# Playwright Challenge
 
 ## Prerequisites
 
