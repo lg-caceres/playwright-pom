@@ -1,14 +1,10 @@
 import { test } from "../fixtures/resources.fixture"
-import { loginPageData, inventoryPageData } from "../data/testData";
+import { loginPageData, inventoryPageData } from "../../data/testData";
 
 
 test.describe('Login page test suite', () => {
 
-  const pageTitle = loginPageData.pageTitle
-  const validUserName = loginPageData.validUserName
-  const validPassword = loginPageData.validPassword
-  const invalidPassword =  loginPageData.invalidPassword
-  const loginErrorMessage = loginPageData.errorMessage
+  const {pageTitle, validUserName, validPassword, invalidPassword, loginErrorMessage} = loginPageData
   const inventoryUrl = inventoryPageData.url
 
   test.beforeEach(async ({ loginPage }) => {

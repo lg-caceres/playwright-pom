@@ -4,7 +4,7 @@ export const loginPageData = {
     validUserName : 'standard_user',
     validPassword : 'secret_sauce',
     invalidPassword : 'wrong-pwd',
-    errorMessage : 'Epic sadface: Username and password do not match any user in this service'
+    loginErrorMessage : 'Epic sadface: Username and password do not match any user in this service'
 }
 
 export const inventoryPageData = {

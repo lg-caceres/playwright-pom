@@ -1,5 +1,5 @@
 import {Page, Locator, expect} from '@playwright/test'
-import { loginPageData } from '../data/testData'
+import { loginPageData } from '../../data/testData'
 import { BasePage } from './basePage'
 
  interface LoginPageLocators {

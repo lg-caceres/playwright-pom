@@ -2,11 +2,12 @@ import { expect, Locator} from "@playwright/test"
 
 export class BasePage {
 
-    public async isElementDisplayed (element: Locator) {
+    public async isElementDisplayed (element: Locator)  {
         try {
             await expect(element).toBeVisible()
         } catch(errorMessage) {
-            await console.log(`${errorMessage}, ${element} was not visible`)
+            await console.log('Element is not visible:', element)
+            throw errorMessage
         }
     }
     

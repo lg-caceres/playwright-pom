@@ -1,15 +1,11 @@
 import { test } from "../fixtures/resources.fixture"
-import { loginPageData, inventoryPageData } from "../data/testData"
+import { loginPageData, inventoryPageData } from "../../data/testData"
 
 
 test.describe('Inventory page test suite', () => {
 
-  const pageTitle = loginPageData.pageTitle
-  const validUserName = loginPageData.validUserName
-  const validPassword = loginPageData.validPassword
-  const numberOfItems = inventoryPageData.numberOfItems
-  const itemsToBeAdded = inventoryPageData.itemsToBeAdded
-  const itemsToBeRemoved = inventoryPageData.itemsToBeRemoved
+  const {pageTitle, validUserName, validPassword} = loginPageData
+  const {numberOfItems, itemsToBeAdded, itemsToBeRemoved} = inventoryPageData
 
   test.beforeEach(async ({ loginPage, inventoryPage }) => {
     await loginPage.goto(pageTitle)
@@ -24,7 +20,7 @@ test.describe('Inventory page test suite', () => {
   })
 
   test('When a new item is added or removed, cart count should be updated properly', async({inventoryPage}) => {
-    // numberOfItemsRemoved MUST BE a subset of numberOfItemsAdded
+    // itemsToBeRemoved MUST BE a subset of itemsToBeAdded
     const numberOfItemsAdded = itemsToBeAdded.length
     const numberOfItemsRemoved = itemsToBeRemoved.length
     const numberOfFinalItemsSelected = numberOfItemsAdded - numberOfItemsRemoved
@@ -39,7 +35,7 @@ test.describe('Inventory page test suite', () => {
   })
 
   test('Users shoudl be able to logout from application', async ({inventoryPage, loginPage}) => {
-    //logout and verify login is displayed
+    //logout and verify login page is displayed
     await inventoryPage.logoutUsingContextMenu()
     await loginPage.loginFormDisplayed()
   }) 

@@ -3,9 +3,14 @@
   "version": "1.0.0",
   "description": "This is a repo with some test scripts using playwright",
   "main": "index.js",
-  "scripts": {},
-  "keywords": [],
-  "author": "",
+  "scripts": {
+    "login-page-test": "npx playwright test loginPage.spec.ts --headed",
+    "inventory-page-test": "npx playwright test inventoryPage.spec.ts --headed",
+    "all-tests": "npx playwright test --headed",
+    "all-tests-ui-mode": "npx playwright test --ui"
+  },
+  "keywords": ["playwright", "typescript", "Swag Labs"],
+  "author": "Luis Caceres",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.0",

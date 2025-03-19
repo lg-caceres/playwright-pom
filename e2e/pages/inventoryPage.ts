@@ -1,5 +1,5 @@
 import {Page, Locator, expect} from '@playwright/test'
-import { inventoryPageData } from '../data/testData'
+import { inventoryPageData } from '../../data/testData'
 import { BasePage } from './basePage'
 
 interface InventoryPageLocators {
@@ -51,6 +51,7 @@ export class InventoryPage extends BasePage {
     }
 
     public async verifyCartBadgeCount(totalItemsAdded: number) {
+        this.isElementDisplayed(this.locators.shoppingCartBadge)
         await expect(this.locators.shoppingCartBadge).toHaveText(totalItemsAdded.toString())
     }
 
