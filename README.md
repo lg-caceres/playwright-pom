@@ -22,11 +22,16 @@ They should return the current version
 1. Clone the project repository
 
    ```bash
-     git clone https://github.com/lg-caceres/playwright-pom.git
-     cd playwrigh-pom
+   git clone https://github.com/lg-caceres/playwright-pom.git
    ```
 
-2. Install the project dependencies:
+2. Open directory:
+
+   ```bash
+   cd playwrigh-pom
+   ```
+
+3. Install the project dependencies:
 
    Using npm:
 
