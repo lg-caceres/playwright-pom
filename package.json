@@ -11,7 +11,7 @@
     "all-tests-terminal": "npx playwright test"
   },
   "keywords": ["playwright", "typescript", "Swag Labs"],
-  "author": "Luis Caceres",
+  "author": "Luis Caceres Zegarra",
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.0",
